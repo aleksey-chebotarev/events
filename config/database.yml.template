@@ -1,0 +1,29 @@
+development:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: events_development
+  pool:     5
+  username: username
+  password: password
+  template: template0
+
+test:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: events_test
+  pool:     5
+  username: username
+  password: password
+  template: template0
+
+production:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: events_production
+  pool:     5
+  username: username
+  password: password
+  template: template0
