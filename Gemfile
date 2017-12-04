@@ -10,6 +10,7 @@ gem 'turbolinks', '~> 5'
 gem 'hamlit'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'ffaker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -22,6 +23,13 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
