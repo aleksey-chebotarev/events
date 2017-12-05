@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show]
   resources :organizers, only: [:index, :show]
   resource  :regions, only: :update
+  resource  :subscribes, only: :create
 end
