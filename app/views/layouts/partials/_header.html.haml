@@ -9,7 +9,16 @@
           %span.icon-bar
         = link_to 'IT-мероприятия России', root_path, class: 'navbar-brand'
       #navbar.navbar-collapse.collapse
+        %ul.nav.navbar-nav.navbar-left
+          - if cookies[:region_number].present?
+            %li= link_to 'Мероприятия', events_path
+          %li= link_to 'Организаторы', organizers_path
         %ul.nav.navbar-nav.navbar-right
-          %li
-            %label.region Ваш регион:
-            %button.btn.btn-default{type: 'button'} Перейти к мероприятию
+          %li.region
+            = form_tag events_path, method: :get do
+              %label Ваш регион:
+              = select_tag(:region_number, options_from_collection_for_select(Region.all, :number, :name,
+                selected: (cookies[:region_number].present? ? cookies[:region_number] : params[:region_number])),
+                include_blank: true, class: "form-control")
+              - unless cookies[:region_number].present?
+                = submit_tag 'Перейти к мероприятиям', name: nil, class: 'btn btn-default'

@@ -1,0 +1,14 @@
+.container
+  - if @organizers.present?
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Организаторы
+      %tbody
+        - @organizers.each do |n|
+          %tr
+            %td= link_to n.title, organizer_path(n)
+
+    = paginate @organizers
+  - else
+    %h3 Организаторов нет

@@ -1,0 +1,13 @@
+#events-filters
+  = form_tag events_path, method: :get, class: 'form-inline' do
+    #radio-buttons
+      %label
+        = radio_button_tag :by_upcoming, 'false', (true if params[:by_upcoming] == 'false')
+        Прошедшие мероприятия
+      %label
+        = radio_button_tag :by_upcoming, 'true', (true if params[:by_upcoming] == 'true' || params[:by_upcoming].blank?)
+        Предстоящие мероприятия
+    = text_field_tag :start_event, params[:start_event], class:'datepicker form-control', placeholder: 'Начало мероприятия'
+    = text_field_tag :by_organizer, params[:by_organizer], class:'form-control', placeholder: 'Поиск по организатору'
+    = text_field_tag :by_place, params[:by_place], class:'form-control', placeholder: 'Поиск по месту проведения'
+    = submit_tag 'Найти мероприятие', name: nil, class: 'btn btn-default'

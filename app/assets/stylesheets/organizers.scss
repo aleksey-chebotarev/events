@@ -1,0 +1,24 @@
+#organizer-show {
+  border: 1px solid $gray-lighter;
+  padding-bottom: 25px;
+
+  .title {
+    color: $gray;
+    text-align: center;
+  }
+  .description, .events-list {
+    border-top: 1px solid $gray-lighter;
+    padding: 0 25px 25px 25px;
+    width: 80%;
+    margin: auto;
+
+    h3 {
+      color: $gray;
+      text-align: left;
+      font-weight: 600;
+    }
+  }
+  .organizer a {
+    color: $gray;
+  }
+}

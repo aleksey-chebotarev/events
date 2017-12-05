@@ -1,0 +1,21 @@
+.container
+  #organizer-show
+    %h3.title= organizer.title
+    .description
+      %h3 Описание:
+      %p= organizer.description
+    .events-list
+      %h3 Список организованных мероприятий:
+      - if @organizers.present?
+        %table.table.table-striped
+          %thead
+            %tr
+              %th Название
+              %th Дата проведения
+          %tbody
+            - @organizers.each do |n|
+              %tr
+                %td= link_to n.title, event_path(n)
+                %td= n.start_date
+      - else
+        %h5 Данный организатор еще не создал мероприятие.

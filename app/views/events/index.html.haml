@@ -1,0 +1,13 @@
+.container
+  = render 'events/search_form'
+
+  - if @events.present?
+    - @events.each do |n|
+      .events-list-element
+        .image
+          = image_tag(n.cover.thumb)
+        %h4= link_to n.title, event_path(n)
+    = paginate @events
+
+  - else
+    %h3 Мероприятий нет

@@ -1,0 +1,20 @@
+header {
+  li.region {
+    label {
+      padding: 15px 15px;
+      color: $gray-light;
+      float: left;
+    }
+    select, button {
+      display: inline-block;
+      margin-top: 10.5px;
+    }
+    select {
+      width: 140px;
+    }
+  }
+}
+.flash-error {
+  display: block;
+  margin-top: -20px;
+}

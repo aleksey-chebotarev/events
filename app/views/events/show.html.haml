@@ -1,0 +1,21 @@
+.container
+  #event-show
+    %h3.title= @event.title
+    .image
+      = image_tag(@event.cover)
+    .description
+      %h3 Описание:
+      %p= @event.description
+    .place
+      %h3 Расположение:
+      %address
+        %strong
+          = @event.place_title
+          %br
+        = "#{@event.city_name}, #{@event.place_address}"
+    .start_date
+      %h3 Дата проведения:
+      %strong= @event.start_date
+    .organizer
+      %h3 Организатор:
+      %strong= link_to @event.organizer_title, organizer_path(@event.organizer)
