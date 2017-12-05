@@ -5,7 +5,7 @@
         = radio_button_tag :by_upcoming, 'false', (true if params[:by_upcoming] == 'false')
         Прошедшие мероприятия
       %label
-        = radio_button_tag :by_upcoming, 'true', (true if params[:by_upcoming] == 'true' || params[:by_upcoming].blank?)
+        = radio_button_tag :by_upcoming, 'true', (true if params[:by_upcoming] == 'true')
         Предстоящие мероприятия
     = text_field_tag :start_event, params[:start_event], class:'datepicker form-control', placeholder: 'Начало мероприятия'
     = text_field_tag :by_organizer, params[:by_organizer], class:'form-control', placeholder: 'Поиск по организатору'
