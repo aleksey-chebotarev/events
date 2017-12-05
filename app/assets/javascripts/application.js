@@ -14,4 +14,17 @@
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
 //= require_tree .
+
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+  }
+});
+
+$(document).ready(function() {
+  $('#start_event').datepicker({
+    format: 'dd.mm.yyyy'
+  });
+});

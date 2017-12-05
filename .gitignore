@@ -21,3 +21,4 @@
 
 config/database.yml
 test
+public/uploads

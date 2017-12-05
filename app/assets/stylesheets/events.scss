@@ -1,0 +1,51 @@
+#events-filters {
+  border: 1px solid $gray-lighter;
+  min-height: 100px;
+  -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  padding: 10px 10px;
+}
+.events-list-element {
+  border: 1px solid $gray-lighter;
+  height: 250px;
+  margin-top: 20px;
+
+  img {
+    width: 250px;
+    height: 250px;
+    display: block;
+    float: left;
+  }
+  h4 a{
+    margin-left: 20px;
+    color: $gray;
+  }
+}
+#event-show {
+  border: 1px solid $gray-lighter;
+  padding-bottom: 25px;
+
+  img {
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin: 25px auto 25px auto;
+  }
+  .title {
+    color: $gray;
+    text-align: center;
+  }
+  .place, .start_date, .description, .organizer {
+    border-top: 1px solid $gray-lighter;
+    padding: 0 25px 25px 25px;
+    width: 80%;
+    margin: auto;
+
+    h3 {
+      color: $gray;
+      text-align: left;
+      font-weight: 600;
+    }
+  }
+}

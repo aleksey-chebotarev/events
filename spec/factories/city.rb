@@ -1,0 +1,6 @@
+FactoryBot.define do
+  factory :city do
+    name { FFaker::Address.city }
+    region
+  end
+end
