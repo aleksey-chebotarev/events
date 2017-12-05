@@ -6,14 +6,14 @@
       %p= organizer.description
     .events-list
       %h3 Список организованных мероприятий:
-      - if @organizers.present?
+      - if @events.present?
         %table.table.table-striped
           %thead
             %tr
               %th Название
               %th Дата проведения
           %tbody
-            - @organizers.each do |n|
+            - @events.each do |n|
               %tr
                 %td= link_to n.title, event_path(n)
                 %td= n.start_date

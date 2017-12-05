@@ -8,7 +8,7 @@ class OrganizersController < ApplicationController
   end
 
   def show
-    @organizers = organizer.events.recent.decorate
+    @events = organizer.events.recent.decorate
   end
 
   private

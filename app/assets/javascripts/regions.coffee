@@ -1,4 +1,4 @@
-$(document).ready ->
+$(document).on 'turbolinks:load', ->
   $('#navbar #region_number').change ->
     region_state = $(this).val()
 

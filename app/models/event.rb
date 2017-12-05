@@ -14,9 +14,9 @@ class Event < ApplicationRecord
   scope :by_place, ->(place) { joins(:place).where('lower(places.title) LIKE ?', "%#{place.downcase}%") }
   scope :by_upcoming, ->(var) {
     if var == 'true'
-      where('DATE(start_date) >= ?', DateTime.now)
+      where('start_date >= ?', DateTime.now)
     else
-      where('DATE(start_date) < ?', DateTime.now)
+      where('start_date <= ?', DateTime.now)
     end
   }
 

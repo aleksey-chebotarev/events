@@ -5,14 +5,18 @@ class EventsController < ApplicationController
   PER_PAGE = 10
 
   def index
-    @events = Event.recent
-                .filter(params.slice(:start_event, :by_organizer, :by_place, :by_upcoming))
-                .page(params[:page]).per(params[:per_page] || PER_PAGE)
+    @events = region.events.recent
+                    .filter(params.slice(:start_event, :by_organizer, :by_place, :by_upcoming))
+                    .page(params[:page]).per(params[:per_page] || PER_PAGE)
   end
 
   private
 
+  def region
+    @region ||= Region.find_by(number: cookies[:region_number] || params[:region_number])
+  end
+
   def load_event
-    @event ||= Event.find(params[:id]).decorate
+    @event ||= region.events.find(params[:id]).decorate
   end
 end
