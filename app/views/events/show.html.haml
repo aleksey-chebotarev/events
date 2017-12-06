@@ -19,3 +19,6 @@
     .organizer
       %h3 Организатор:
       %strong= link_to @event.organizer_title, organizer_path(@event.organizer)
+    .addition
+      %h3 Дополнительно:
+      = link_to 'Скачать ICS', event_path(format: :ics), class: 'btn btn-info'

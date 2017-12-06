@@ -16,6 +16,7 @@ gem 'mini_magick'
 gem 'kaminari'
 gem 'draper'
 gem 'bootstrap-datepicker-rails'
+gem 'icalendar'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
