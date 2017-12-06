@@ -10,7 +10,20 @@ class EventsController < ApplicationController
                     .page(params[:page]).per(params[:per_page] || PER_PAGE)
   end
 
+  def show
+    respond_to do |format|
+      format.html
+      format.ics do
+        send_data ics_build.start, filename: ics_build.filename
+      end
+    end
+  end
+
   private
+
+  def ics_build
+    IcsService.new(@event)
+  end
 
   def region
     @region ||= Region.find_by(number: cookies[:region_number])

@@ -48,10 +48,20 @@ RSpec.describe EventsController, type: :controller do
   describe '#show' do
     let!(:event) { create(:event, region: region) }
 
-    before { get :show, params: { id: event.id } }
+    context 'when format is html' do
+      before { get :show, params: { id: event.id } }
 
-    specify do
-      expect(assigns(:event)).to eq event
+      specify do
+        expect(assigns(:event)).to eq event
+      end
+    end
+
+    context 'when format is isc' do
+      before { get :show, params: { id: event.id, format: :ics } }
+
+      specify do
+        expect(response).to have_http_status(:success)
+      end
     end
   end
 end
