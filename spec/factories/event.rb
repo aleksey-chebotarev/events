@@ -1,9 +1,10 @@
 FactoryBot.define do
   factory :event do
-    title       { FFaker::Lorem.sentence }
-    description { FFaker::Lorem.paragraph }
-    cover       { File.new(Rails.root.join('app', 'assets', 'images', 'default-cover.png')) }
-    start_date  { DateTime.now }
+    title         { FFaker::Lorem.sentence }
+    description   { FFaker::Lorem.paragraph }
+    cover         { File.new(Rails.root.join('app', 'assets', 'images', 'default-cover.png')) }
+    start_date    { DateTime.now }
+    external_link { FFaker::Internet.http_url }
 
     association :region, factory: :region
     association :city, factory: :city

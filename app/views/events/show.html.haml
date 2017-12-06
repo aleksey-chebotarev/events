@@ -19,6 +19,10 @@
     .organizer
       %h3 Организатор:
       %strong= link_to @event.organizer_title, organizer_path(@event.organizer)
+      - if @event.external_link.present?
+        %br
+        %span.glyphicon.glyphicon-link.external-link
+        = link_to @event.external_link, @event.external_link, target: :_blank
     .addition
       %h3 Дополнительно:
       = link_to 'Скачать ICS', event_path(format: :ics), class: 'btn btn-info'
