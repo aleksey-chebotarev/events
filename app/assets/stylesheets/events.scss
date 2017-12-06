@@ -8,18 +8,17 @@
 }
 .events-list-element {
   border: 1px solid $gray-lighter;
-  height: 250px;
+  min-height: 250px;
   margin-top: 20px;
 
-  img {
+  .image {
     width: 250px;
     height: 250px;
-    display: block;
-    float: left;
   }
-  h4 a{
-    margin-left: 20px;
-    color: $gray;
+  .text-block {
+    h4 a{
+      color: $gray;
+    }
   }
 }
 #event-show {
@@ -49,6 +48,23 @@
     }
     .external-link {
       margin-top: 15px;
+    }
+  }
+}
+@media (min-width : 550px) {
+  .events-list-element {
+    .image {
+      float: left;
+    }
+    .text-block {
+      margin-left: 270px;
+    }
+  }
+}
+@media (max-width : 550px) {
+  .events-list-element {
+    .text-block {
+      margin-left: 5px;
     }
   }
 }

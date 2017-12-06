@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   def index
     @events = region.events.recent
                     .filter(params.slice(:start_event, :by_organizer, :by_place, :by_upcoming))
-                    .page(params[:page]).per(params[:per_page] || PER_PAGE)
+                    .page(params[:page]).per(params[:per_page] || PER_PAGE).decorate
   end
 
   def show

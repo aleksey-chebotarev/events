@@ -6,7 +6,13 @@
       .events-list-element
         .image
           = image_tag(n.cover.thumb)
-        %h4= link_to n.title, event_path(n)
+        .text-block
+          %h4= link_to n.title, event_path(n)
+          %p.text-muted= n.start_date
+          %p.place= n.full_address
+          - if n.external_link.present?
+            %span.glyphicon.glyphicon-link.external-link
+            = link_to n.external_link, n.external_link, target: :_blank
     = paginate @events
 
   - else
