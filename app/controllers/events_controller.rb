@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   private
 
   def region
-    @region ||= Region.find_by(number: cookies[:region_number] || params[:region_number])
+    @region ||= Region.find_by(number: cookies[:region_number])
   end
 
   def load_event

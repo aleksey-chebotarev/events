@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def region_is_valid!
-    unless cookies[:region_number].present? || params[:region_number].present?
+    unless cookies[:region_number].present?
       redirect_to root_path
     end
   end
