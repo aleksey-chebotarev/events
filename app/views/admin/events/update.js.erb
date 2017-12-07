@@ -1,0 +1,8 @@
+event_city = $('.admin-events-form #admin-event-city-block');
+event_region = $('.admin-events-form .event_region');
+
+if (event_city.length) {
+  event_city.replaceWith('<%= j render('admin/events/partials/select_tag', event: @event, cities: @cities) %>');
+} else {
+  event_region.append('<%= j render('admin/events/partials/select_tag', event: @event, cities: @cities) %>');
+}

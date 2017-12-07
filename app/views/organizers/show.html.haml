@@ -16,6 +16,6 @@
             - @events.each do |n|
               %tr
                 %td= link_to n.title, event_path(n)
-                %td= n.start_date
+                %td= n.custom_start_date
       - else
         %h5 Данный организатор еще не создал мероприятие.

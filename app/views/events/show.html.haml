@@ -15,7 +15,7 @@
         = "#{@event.city_name}, #{@event.place_address}"
     .start_date
       %h3 Дата проведения:
-      %strong= @event.start_date
+      %strong= @event.custom_start_date
     .organizer
       %h3 Организатор:
       %strong= link_to @event.organizer_title, organizer_path(@event.organizer)

@@ -1,0 +1,21 @@
+.container
+  %h1.page-header= @event.title
+  %label Обложка
+  %p= image_tag(@event.cover.thumb)
+  %label Описание
+  %p= @event.description
+  %label Дата начала мероприятия
+  %p= @event.start_date
+  - if @event.external_link.present?
+    %label Внешняя ссылка
+    %p= link_to @event.external_link, @event.external_link, target: '_blank'
+  %label Регион
+  %p= @event.full_region
+  %label Город
+  %p= @event.city_name
+  %label Организатор
+  %p= @event.organizer_title
+  %p= @event.organizer_description
+  %label Место проведения
+  %p= @event.place_title
+  %p= @event.place_address

@@ -1,0 +1,19 @@
+.container
+  #admin-events-index
+    %h1.page-header
+      Мероприятия
+      = link_to 'Добавить мероприятие', new_admin_event_path, class: 'btn btn-success'
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Title
+          %th Start date
+          %th Actions
+      %tbody
+        - @events.each do |n|
+          %tr
+            %td= link_to n.title, admin_event_path(n)
+            %td= n.custom_start_date
+            %td
+              = link_to 'Edit', edit_admin_event_path(n)
+    = paginate @events

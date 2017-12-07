@@ -1,0 +1,4 @@
+#admin-event-city-block
+  = fields_for @event do |f|
+    = f.label :city
+    = f.select(:city_id, (f.object.region_id.present? ? options_from_collection_for_select(cities, :id, :name, { selected: f.object.city_id }) : {}), { include_blank: true }, { class: 'form-control' })

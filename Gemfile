@@ -17,6 +17,9 @@ gem 'kaminari'
 gem 'draper'
 gem 'bootstrap-datepicker-rails'
 gem 'icalendar'
+gem 'devise'
+gem 'simple_form'
+gem 'rolify'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

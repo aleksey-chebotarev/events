@@ -1,0 +1,38 @@
+#admin-events-index {
+  .page-header .btn-success {
+    float: right;
+  }
+}
+.start-date-block {
+  min-height: 34px;
+
+  .start-date-date_select {
+    max-width: 342px;
+
+    select {
+      width: 140px;
+      float: left;
+      margin-left: 5px;
+    }
+    select:first-child {
+      width: 70px;
+      margin-left: 0;
+    }
+    select:last-child {
+      width: 120px;
+    }
+  }
+  .start-date-time_select {
+    max-width: 342px;
+    display: inline-block;
+    margin-left: 5px;
+
+    select {
+      width: 100px;
+      display: inline-block;
+    }
+    select:last-child {
+      margin-left: 5px;
+    }
+  }
+}
