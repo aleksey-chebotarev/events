@@ -26,7 +26,7 @@ class Admin::EventsController < Admin::BaseController
 
   def update
     if request.xhr?
-      @cities = Region.find(params[:id]).cities
+      @cities = Region.find(params[:region_id]).cities
     else
       if @event.update(event_params)
         flash[:success] = 'Мероприятие успешно изменено.'

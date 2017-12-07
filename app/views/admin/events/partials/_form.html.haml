@@ -12,6 +12,7 @@
       .start-date-time_select
         = event.time_select :start_date, { time_separator: '<span>:</span>' }, { class: "form-control" }
     = event.input :external_link, label: 'Внешняя ссылка'
+    = event.input :cover, as: :file
     = event.association :region
     #admin-event-city-block
       - if event.object.region_id.present?
