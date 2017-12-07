@@ -20,7 +20,12 @@ class Event < ApplicationRecord
     end
   }
 
+  validates :title, :description, :start_date, presence: true
+
   delegate :name, to: :city, prefix: 'city', allow_nil: true
   delegate :title, :address, to: :place, prefix: 'place', allow_nil: true
   delegate :id, :title, :description, to: :organizer, prefix: 'organizer', allow_nil: true
+  delegate :id, :number, :name, to: :region, prefix: 'region', allow_nil: true
+
+  accepts_nested_attributes_for :place
 end

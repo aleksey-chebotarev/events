@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title Events | Admin panel
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = render 'layouts/admin/header'
+    = render 'layouts/partials/flash_messages'
+    = yield

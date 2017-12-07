@@ -1,0 +1,24 @@
+.admin-events-form
+  = render 'partials/errors', object: event
+
+  = simple_form_for [:admin, event] do |event|
+    = event.input :title, label: 'Заголовок'
+    = event.input :description, label: 'Описание'
+    %label Начало мероприятия
+    %br
+    .start-date-block
+      .start-date-date_select
+        = event.date_select :start_date, { order: [:day, :month, :year] }, { class: "form-control" }
+      .start-date-time_select
+        = event.time_select :start_date, { time_separator: '<span>:</span>' }, { class: "form-control" }
+    = event.input :external_link, label: 'Внешняя ссылка'
+    = event.input :cover, as: :file
+    = event.association :region
+    #admin-event-city-block
+      - if event.object.region_id.present?
+        = render 'admin/events/partials/select_tag', event: event, cities: @event.region.cities
+    = event.simple_fields_for :place do |place|
+      = place.input :title, label: 'Заголовок места проведения'
+      = place.input :address, label: 'Адрес места проведения'
+    = event.association :organizer
+    = event.button :submit

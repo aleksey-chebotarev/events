@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe OrganizersController, type: :controller do
-  let(:region_number) { 25 }
-  let!(:region) { create :region, number: region_number }
+  let!(:region) { create :region }
 
-  before { cookies[:region_number] = region_number }
+  before { cookies[:region_number] = region.number }
 
   describe '#index' do
     context 'should get collection of organizers' do
