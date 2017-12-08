@@ -9,6 +9,9 @@ class ApplicationController < ActionController::Base
   end
 
   def region_is_valid!
-    redirect_to root_path unless cookies[:region_number].present?
+    unless cookies[:region_number].present?
+      flash[:notice] = 'Вы должны выбрать регион!'
+      redirect_to root_path
+    end
   end
 end
