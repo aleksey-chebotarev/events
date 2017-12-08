@@ -6,8 +6,6 @@ class Admin::BaseController < ActionController::Base
   private
 
   def access_only_for_admin!
-    unless user_signed_in? && current_user.has_role?(:admin)
-      redirect_to root_path
-    end
+    redirect_to root_path unless user_signed_in? && current_user.has_role?(:admin)
   end
 end

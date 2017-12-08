@@ -12,7 +12,7 @@ class Event < ApplicationRecord
   scope :start_event, ->(start_event) { where('DATE(start_date) = ?', start_event) }
   scope :by_organizer, ->(organizer) { joins(:organizer).where('lower(organizers.title) LIKE ?', "%#{organizer.downcase}%") }
   scope :by_place, ->(place) { joins(:place).where('lower(places.title) LIKE ?', "%#{place.downcase}%") }
-  scope :by_upcoming, ->(var) {
+  scope :by_upcoming, lambda { |var|
     if var == 'true'
       where('start_date >= ?', DateTime.now)
     else
