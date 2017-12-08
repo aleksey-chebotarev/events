@@ -9,10 +9,9 @@
           %span.icon-bar
         = link_to 'IT-мероприятия России', root_path, class: 'navbar-brand'
       #navbar.navbar-collapse.collapse
-        %ul.nav.navbar-nav.navbar-left
-          - if cookies[:region_number].present?
-            %li= link_to 'Мероприятия', events_path
-            %li= link_to 'Организаторы', organizers_path
+        %ul.nav.navbar-nav.navbar-left#event-links
+          %li= link_to 'Мероприятия', events_path
+          %li= link_to 'Организаторы', organizers_path
         %ul.nav.navbar-nav.navbar-right
           %li.region
             = form_tag events_path, method: :get do
