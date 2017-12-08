@@ -17,14 +17,14 @@
 //= require bootstrap-datepicker
 //= require_tree .
 
-$.ajaxSetup({
-  headers: {
-    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-  }
-});
-
 $(document).ready(function() {
   $('#start_event').datepicker({
     format: 'dd.mm.yyyy'
   });
+});
+
+$(document).ready(function() {
+  setTimeout((function() {
+    $('.flash-error').remove();
+  }), 5000);
 });
