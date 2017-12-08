@@ -29,12 +29,14 @@ cities = [
   { 91 => { name: 'Ялта' } }
 ]
 
-organizer = Organizer.create!(
-  title: FFaker::Lorem.sentence,
-  description: FFaker::Lorem.paragraph
-)
+20.times do
+  organizer = Organizer.create!(
+    title: FFaker::Lorem.sentence,
+    description: FFaker::Lorem.paragraph
+  )
 
-puts "Organizer #{organizer.title} was created"
+  puts "Organizer #{organizer.title} was created"
+end
 
 regions.each do |n|
   region = Region.create!(
