@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   PER_PAGE = 10
 
   def index
-    @events = region.events.recent
+    @events = region.events.includes(:city, :place).recent
                     .filter(params.slice(:start_event, :by_organizer, :by_place, :by_upcoming))
                     .page(params[:page]).per(params[:per_page] || PER_PAGE).decorate
   end
@@ -30,6 +30,6 @@ class EventsController < ApplicationController
   end
 
   def load_event
-    @event ||= region.events.find(params[:id]).decorate
+    @event ||= Event.find(params[:id]).decorate
   end
 end
