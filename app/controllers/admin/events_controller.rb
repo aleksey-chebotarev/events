@@ -1,5 +1,5 @@
 class Admin::EventsController < Admin::BaseController
-  before_action :load_event, only: [:show, :edit, :update]
+  before_action :load_event, only: %i[show edit update]
 
   PER_PAGE = 10
 
@@ -27,14 +27,12 @@ class Admin::EventsController < Admin::BaseController
   def update
     if request.xhr?
       @cities = Region.find(params[:region_id]).cities
-    else
-      if @event.update(event_params)
-        flash[:success] = 'Мероприятие успешно изменено.'
+    elsif @event.update(event_params)
+      flash[:success] = 'Мероприятие успешно изменено.'
 
-        redirect_to admin_events_path
-      else
-        render :edit
-      end
+      redirect_to admin_events_path
+    else
+      render :edit
     end
   end
 
@@ -45,9 +43,10 @@ class Admin::EventsController < Admin::BaseController
   end
 
   def event_params
-    params.require(:event).permit(:title, :description, :start_date, :cover, :external_link,
-                                  :region_id, :city_id, :organizer_id,
-                                  place_attributes: %i[id title address]
+    params.require(:event).permit(
+      :title, :description, :start_date, :cover, :external_link,
+      :region_id, :city_id, :organizer_id,
+      place_attributes: %i[id title address]
     )
   end
 end
