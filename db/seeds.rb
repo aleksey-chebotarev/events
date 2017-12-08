@@ -29,6 +29,13 @@ cities = [
   { 91 => { name: 'Ялта' } }
 ]
 
+organizer = Organizer.create!(
+  title: FFaker::Lorem.sentence,
+  description: FFaker::Lorem.paragraph
+)
+
+puts "Organizer #{organizer.title} was created"
+
 regions.each do |n|
   region = Region.create!(
     number: n[:number],
@@ -38,11 +45,39 @@ regions.each do |n|
   puts "Region #{region.name} was created"
 
   cities.each do |city|
+    next unless city[region.number].present?
+
     city = City.create!(
       name: city[region.number][:name],
       region_id: region.id
     )
 
     puts "City #{city.name} was created"
+
+    10.times.each do |k|
+      event = Event.new(
+        title:         FFaker::Lorem.sentence,
+        description:   FFaker::Lorem.paragraph,
+        cover:         File.new(Rails.root.join('app', 'assets', 'images', 'default-cover.png')),
+        start_date:    (
+          if k.even?
+            FFaker::Time.between(Time.now-3.months, Time.now-1.days)
+          else
+            FFaker::Time.between(Time.now+1.days, Time.now+3.months)
+          end
+        ),
+        external_link: FFaker::Internet.http_url,
+        region_id:     region.id,
+        city_id:       city.id
+      )
+      event.organizer = Organizer.offset(rand(Organizer.count)).first
+      event.place     = Place.create!(
+        title:   FFaker::Lorem.sentence,
+        address: FFaker::Address.street_address
+      )
+      event.save!
+
+      puts "Event #{event.title} was created"
+    end
   end
 end
