@@ -18,6 +18,7 @@
 
 .byebug_history
 .idea
+.env
 
 config/database.yml
 test

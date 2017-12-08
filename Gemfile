@@ -20,6 +20,8 @@ gem 'icalendar'
 gem 'devise'
 gem 'simple_form'
 gem 'rolify'
+gem 'aws-sdk-s3'
+gem 'fog-aws'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -27,6 +29,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'pry-rails'
   gem 'factory_bot_rails'
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
 end
 
 group :development do
