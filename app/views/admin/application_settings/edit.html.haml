@@ -1,0 +1,6 @@
+.container
+  %h1.page-header Редактировать мероприятие
+
+  = simple_form_for @app_config, url: admin_application_setting_path do |setting|
+    = setting.input :number_of_upcoming_days, label: 'Количество дней, до начала мероприятий'
+    = setting.button :submit

@@ -2,6 +2,6 @@
   .jumbotron
     %h1 IT мероприятия России
     %p Подпишитесь и узнавайте о предстоящих мероприятиях!
-    = form_tag subscribes_path, class: 'form-inline' do
+    = form_tag subscribers_path, class: 'form-inline' do
       = text_field_tag :email, nil, class:'form-control', placeholder: 'Ваш email адрес'
       = submit_tag 'Подписаться', name: nil, class: 'btn btn-primary'

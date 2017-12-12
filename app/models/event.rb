@@ -19,6 +19,7 @@ class Event < ApplicationRecord
       where('start_date <= ?', DateTime.now)
     end
   }
+  scope :events_upcoming, ->(days) { where('DATE(start_date) = ?', Date.today + days) }
 
   validates :title, :description, :start_date, presence: true
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SubscribesController, type: :controller do
+RSpec.describe SubscribersController, type: :controller do
   describe '#create' do
     context 'when success' do
       let(:params) { { email: 'email@example.com' } }

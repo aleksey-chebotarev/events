@@ -22,6 +22,15 @@ gem 'simple_form'
 gem 'rolify'
 gem 'aws-sdk-s3'
 gem 'fog-aws'
+gem 'sendgrid-ruby'
+# Background processing + web interface for sidekiq
+gem 'sidekiq', '~> 5.0', '>= 5.0.5'
+gem 'sidekiq-status'
+gem 'sidekiq-failures'
+gem 'sidekiq-unique-jobs'
+gem 'sinatra', require: false
+gem 'redis-namespace'
+gem 'sidekiq-scheduler', '~> 2.1', '>= 2.1.10'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -30,6 +39,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'factory_bot_rails'
   gem 'dotenv-rails', require: 'dotenv/rails-now'
+  gem 'letter_opener'
 end
 
 group :development do

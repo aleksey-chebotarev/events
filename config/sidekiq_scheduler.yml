@@ -1,0 +1,4 @@
+new_reports_worker:
+  every: 24h
+  class: NewReportsWorker
+  queue: notifications
