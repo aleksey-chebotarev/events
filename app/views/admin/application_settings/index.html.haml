@@ -1,0 +1,12 @@
+.container
+  #admin-app-settings-index
+    %h1.page-header
+      Глобальные настройки
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Количество дней, до начала
+          %th Actions
+      %tbody
+        %td= @app_config.number_of_upcoming_days
+        %td= link_to 'Edit', edit_admin_application_setting_path(@app_config)

@@ -1,6 +1,6 @@
-class SubscribesController < ApplicationController
+class SubscribersController < ApplicationController
   def create
-    subscribe = Subscribe.new(email: params[:email])
+    subscribe = Subscriber.new(email: params[:email])
 
     if subscribe.save
       flash[:success] = 'Вы подписаны на рассылку'

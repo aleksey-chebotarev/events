@@ -1,0 +1,10 @@
+%h1 Предстоящие мероприятия
+%table
+  %tr
+    %th Заголовок мероприятия
+    %th Дата начала мероприятия
+
+  - @events.each do |event|
+    %tr
+      %td= link_to event.title, event_url(event)
+      %td= event.custom_start_date
